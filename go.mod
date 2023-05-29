@@ -1,4 +1,4 @@
-module goseqlock
+module github.com/MUSQQQ/goseqlock
 
 go 1.20
 
