@@ -2,12 +2,12 @@
 Basic implementation of a sequence lock in golang.
 # How to use
 ```
-go get -u github.com/MUSQQQ/goseqlock
+go get github.com/MUSQQQ/goseqlock
 ```
 ```go
 
 // func that shows the process of reading data
-func ReadingData(seq *seqlock.SeqLock, wg *sync.WaitGroup) {
+func ReadingData(seq *goseqlock.SeqLock, wg *sync.WaitGroup) {
 	tmp := uint32(0)
 	for {
 		tmp = seq.RdRead()
@@ -24,7 +24,7 @@ func ReadingData(seq *seqlock.SeqLock, wg *sync.WaitGroup) {
 }
 
 // func that shows the process of writing data
-func WritingData(seq *seqlock.SeqLock, wg *sync.WaitGroup) {
+func WritingData(seq *goseqlock.SeqLock, wg *sync.WaitGroup) {
 	seq.WrLock()
 	/*
 
@@ -35,4 +35,4 @@ func WritingData(seq *seqlock.SeqLock, wg *sync.WaitGroup) {
 	defer wg.Done()
 }
 ```
-
+enjoy and criticise so I can improve it if needed :)
